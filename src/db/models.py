@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import BigInteger
-from session import Base
+from db.session import Base
 
 
 class Person(Base):
