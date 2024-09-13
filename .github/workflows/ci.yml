@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+   branches:
+      -main
+  pull_request:
+    branches:
+      -main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest]
+    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Poetry
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          cd src
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: run flake8
+        run: |
+          cd src
+          poetry run flake8 src
+          
+
+
+
