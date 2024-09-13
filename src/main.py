@@ -1,10 +1,13 @@
-from api.endpoints import get_version
-import asyncio
+from api.endpoints import router
+from fastapi import FastAPI
+from fastapi.openapi.docs import get_swagger_ui_html
 
 
-def main() -> None:
-    asyncio.run(get_version())
+app = FastAPI()
+
+app.include_router(router)
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/docs")
+def read_docs():
+    return get_swagger_ui_html(openapi_url="/openapi.json")
