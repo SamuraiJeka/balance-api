@@ -1,4 +1,4 @@
-from api.endpoints import router
+from routes.endpoints import router
 from fastapi import FastAPI
 from fastapi.openapi.docs import get_swagger_ui_html
 

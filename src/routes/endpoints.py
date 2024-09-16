@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from sqlalchemy import text
-from db.session import async_session
+from config.db_session import async_session
 
 
 router = APIRouter(prefix="/balance", tags=["balance"])
