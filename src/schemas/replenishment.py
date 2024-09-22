@@ -1,6 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, PositiveInt
 
 
 class Replenishment(BaseModel):
     id: int
-    amount: int
+    amount: PositiveInt
