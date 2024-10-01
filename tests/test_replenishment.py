@@ -1,10 +1,25 @@
-from fastapi.testclient import TestClient
-from src.main import app
+from httpx import AsyncClient
+from conftest import session_test
 
 
-client = TestClient(app)
+async def test_sum_balance(ac: AsyncClient):
+    body = {
+        "id": 1,
+        "amount": 100
+    }
+    response = await ac.post("/balance/replenishment", json=body)
+
+    assert response.status_code == 200
+    assert response.json() == {"result": "Balance replenished"}
 
 
-def test_calculate():
-    response = client.get("/balance/replenishment")
+async def test_string_sum_balance(ac: AsyncClient):
+    body = {
+        "id": 1,
+        "amount": "100"
+    }
+    response = await ac.post("/balance/replenishment", json=body)
+
+    assert response.status_code == 200
+    assert response.json() == {"result": "Balance replenished"}
     

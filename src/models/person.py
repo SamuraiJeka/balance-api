@@ -6,5 +6,5 @@ from config.db_session import Base
 class Person(Base):
     __tablename__ = "persons"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     balance: Mapped[int] = mapped_column(BigInteger(), default=0, nullable=False)

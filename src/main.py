@@ -8,6 +8,6 @@ app = FastAPI()
 app.include_router(router)
 
 
-@app.get("/docs")
+@app.get("/")
 def read_docs():
     return get_swagger_ui_html(openapi_url="/openapi.json")

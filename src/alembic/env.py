@@ -9,7 +9,7 @@ from alembic import context
 
 from config.db_session import Base
 from config.db_config import settings
-from schemas.person import *
+from models.person import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
