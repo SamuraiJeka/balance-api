@@ -1,5 +1,4 @@
 from httpx import AsyncClient
-from conftest import session_test
 
 
 async def test_sum_balance(ac: AsyncClient):
