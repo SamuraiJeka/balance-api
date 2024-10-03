@@ -24,11 +24,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           poetry install
-      - name: run flake8
+      - name: Run flake8
         run: |
           cd src
           poetry run flake8 src
+          poetry run black src
           
-
-
-
+  test:
+      runs-on: ubuntu-laters
+      if: ${{github.ref == 'refs/heads/main' || github.event_name == 'pull_request'}}
+      needs: lint
+      steps:
+        - uses: actions/checkout@v3
+        - name: Set up Poetry
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.11'
+        - name: Install dependencies
+          run: |
+            cd src
+            python -m pip install --upgrade pip
+            pip install poetry
+            poetry install
+        - name: Run pytest
+          run: |
+            cd src
+            poetry run pytest ../tests
