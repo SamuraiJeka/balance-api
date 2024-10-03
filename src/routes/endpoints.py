@@ -49,6 +49,7 @@ async def transfer(transfer: Transfer):
                 return {"result": "Underdraft"}
             sender.balance -= transfer.amount
             recipient.balance += transfer.amount
+            await session.commit()
     except:
         return {"result": "Server error"}
     else: 

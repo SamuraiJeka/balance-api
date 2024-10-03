@@ -7,7 +7,7 @@ async def test_transfer(ac: AsyncClient):
         "recipient_id": 2,
         "amount": 400
     }
-    response = await ac.post("/balance/transfer", json=body)
+    response = await ac.post("/balance/c", json=body)
 
     assert response.status_code == 200
     assert response.json() == {"result": "Successful transfer"}
