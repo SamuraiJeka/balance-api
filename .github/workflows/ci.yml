@@ -20,6 +20,7 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
+          echo "Test CI"
           cd src
           python -m pip install --upgrade pip
           pip install poetry
@@ -31,7 +32,7 @@ jobs:
           poetry run black src
           
   test:
-      runs-on: ubuntu-laters
+      runs-on: ubuntu-latest
       if: ${{github.ref == 'refs/heads/main' || github.event_name == 'pull_request'}}
       needs: lint
       steps:
