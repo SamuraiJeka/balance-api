@@ -28,7 +28,7 @@ jobs:
       - name: Run flake8
         run: |
           cd src
-          poetry run flake8 src
+          poetry run flake8 .
           poetry run black src
           
   test:
