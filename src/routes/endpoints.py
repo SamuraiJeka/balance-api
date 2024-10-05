@@ -52,6 +52,5 @@ async def transfer(transfer: Transfer):
             await session.commit()
     except:
         return {"result": "Server error"}
-    else: 
+    else:
         return {"result": "Successful transfer"}
-        
