@@ -11,4 +11,4 @@ metadata = MetaData()
 
 
 class Base(DeclarativeBase):
-    ...
+    pass
