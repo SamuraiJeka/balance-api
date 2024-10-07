@@ -48,11 +48,11 @@ jobs:
       - name: Create envfile
         run: |
           touch .env
-          echo DB_HOST_TEST=localhost >> .env
-          echo DB_PORT_TEST=5432 >> .env
-          echo DB_USER_TEST=postgre >> .env
-          echo DB_PASSWORD_TEST=admin >> .env
-          echo DB_NAME_TEST=TestDataBase >> .env
+          echo DB_HOST=localhost >> .env
+          echo DB_PORT=5432 >> .env
+          echo DB_USER=postgre >> .env
+          echo DB_PASSWORD=admin >> .env
+          echo DB_NAME=TestDataBase >> .env
 
       - name: Run pytest
         run: |
