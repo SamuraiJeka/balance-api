@@ -56,4 +56,6 @@ jobs:
 
       - name: Run pytest
         run: |
+          pwd
+          ls -l
           poetry run pytest tests
