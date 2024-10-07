@@ -45,6 +45,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           poetry install
+      - name: Create envfile
+        run: |
+          touch .env
+          echo DB_HOST_TEST=localhost >> .env
+          echo DB_PORT_TEST=5432 >> .env
+          echo DB_USER_TEST=postgre >> .env
+          echo DB_PASSWORD_TEST=admin >> .env
+          echo DB_NAME_TEST=TestDataBase >> .env
+
       - name: Run pytest
         run: |
-          poetry run pytest ../tests
+          poetry run pytest tests
