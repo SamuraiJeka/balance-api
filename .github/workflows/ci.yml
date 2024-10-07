@@ -53,9 +53,8 @@ jobs:
           echo DB_USER=postgre >> .env
           echo DB_PASSWORD=admin >> .env
           echo DB_NAME=TestDataBase >> .env
+          cat .env
 
       - name: Run pytest
         run: |
-          pwd
-          ls -l
           poetry run pytest tests
